@@ -8,3 +8,4 @@ class theory(models.Model):
     theory_title = models.CharField(max_length = 200)
     theory_text = models.TextField()
     theory_date = models.DateField()
+    theory_slug = models.SlugField(max_length= 50, default='default')
