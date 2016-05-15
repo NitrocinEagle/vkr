@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^theory/all/$', 'vkr.views.allTheory'),
     url(r'^theory/all/lesson/(?P<theory_id>\d+)/$', 'vkr.views.oneTheory'),
+    # TODO попробовать сделать переход по слагу, а не id
     # url(r'^', 'vkr.urls'),
 ]
