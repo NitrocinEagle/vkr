@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^theory/all/$', 'vkr.views.index'),
     url(r'^theory/all/lesson/(?P<theory_id>\d+)/$', 'vkr.views.oneTheory'),
     # TODO попробовать сделать переход по слагу, а не id
+    # TODO сделать домашнюю страницу, навести порядок в urls и views
     # url(r'^', 'vkr.urls'),
 ]
