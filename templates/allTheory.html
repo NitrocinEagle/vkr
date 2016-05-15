@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Обучение методам шифрования</title>
-</head>
-<body>
-    {% for this_theory in allTheory %}
-        <h6>Дата публикации: {{ this_theory.theory_date }}</h6>
-        <h4><a href="lesson/{{ this_theory.id }}"> {{ this_theory.theory_title }}</a> </h4>
-        <hr>
-    {% endfor %}
-</body>
-</html>
+{% extends 'index.html' %}
+{% block allcontent %}
+{% for this_theory in allTheory %}
+    <h6>Дата публикации: {{ this_theory.theory_date }}</h6>
+    <h4><a href="lesson/{{ this_theory.id }}"> {{ this_theory.theory_title }}</a> </h4>
+    <hr>
+{% endfor %}
+{% endblock %}

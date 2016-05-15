@@ -8,10 +8,8 @@ from vkr.models import theory
 
 # Create your views here.
 
-def home(request):
-    view = 'SFU'
-    return render_to_response('index.html', {'name': view})
-
+def index(request):
+    return render_to_response('allTheory.html', {'allTheory': theory.objects.all()})
 
 def allTheory(request):
     return render_to_response('allTheory.html', {'allTheory': theory.objects.all()})
