@@ -19,6 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^theory/all/$', 'vkr.views.allTheory'),
-    url(r'^lesson/(?P<theory_id>\d+)/$', 'vkr.views.oneTheory'),
+    url(r'^theory/all/lesson/(?P<theory_id>\d+)/$', 'vkr.views.oneTheory'),
     # url(r'^', 'vkr.urls'),
 ]

@@ -7,7 +7,7 @@
 <body>
     {% for this_theory in allTheory %}
         <h6>Дата публикации: {{ this_theory.theory_date }}</h6>
-        <h4><a href="lesson/{{ theory_id }}"> {{ this_theory.theory_title }}</a> </h4>
+        <h4><a href="lesson/{{ this_theory.id }}"> {{ this_theory.theory_title }}</a> </h4>
         <hr>
     {% endfor %}
 </body>
