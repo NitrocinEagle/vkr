@@ -11,9 +11,5 @@ from django.contrib import auth
 def index(request):
     return render_to_response('allTheory.html', {'allTheory': theory.objects.all(), 'username': auth.get_user(request).username})
 
-#def allTheory(request):
-    #return render_to_response('allTheory.html', {'allTheory': theory.objects.all()})
-
-
 def oneTheory(request, theory_id):
     return render_to_response('oneTheory.html', {'oneTheory': theory.objects.get(id=theory_id), 'username': auth.get_user(request).username})

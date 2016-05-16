@@ -13,11 +13,11 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">CryptTutor</a>
+          <a class="navbar-brand">CryptTutor</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Главная</a></li>
+            <li><a href="/theory/all">Главная</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               {% if username %}
@@ -31,13 +31,12 @@
     </div>
 <div class="container">
 <div class="jumbotron">
-    <h1>Теоретический материал</h1>
-<hr>
+    <h2>Обучение методам шифрования</h2>
+    <hr>
     {% block allcontent %}{% endblock %}
-{% block login %}{% endblock %}
-
+    {% block onecontent %}{% endblock %}
+    {% block login %}{% endblock %}
 </div>
 </div>
-
 </body>
 </html>

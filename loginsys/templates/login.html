@@ -2,16 +2,17 @@
 
 {% block login %}
     <div class="container">
-        <form action="/auth/login/" method="post">
+        <form action="/auth/login/" class="form-signin" role="form" method="post">
+        <h3 class="form-signin-heading">Аутентификация</h3>
             {% csrf_token %}
-            <label for = "username">Имя пользователя</label>
-            <input type="text" name="username" id="username">
-            <label for="password">Пароль</label>
-            <input type="password" name="password" id="password">
+            <input type="text" class="form-control" placeholder="Имя пользователя" name="username" id="username"  required autofocus>
+            <hr>
+            <input type="password" class="form-control" placeholder="Пароль" name="password" id ="password" required >
             {% if login_error %}
                 <label class="has-error">{{ login_error }}</label>
             {% endif %}
-        <input class="button" type="submit" value="Войти">
+            <hr>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
         </form>
     </div>
 {% endblock %}
