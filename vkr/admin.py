@@ -6,6 +6,7 @@ from vkr.models import theory
 
 class theoryAdmin(admin.ModelAdmin):
     list_filter = ['theory_date']
+    list_display = ['theory_title', 'theory_date']
 
 
 admin.site.register(theory, theoryAdmin)

@@ -1,8 +1,10 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="ru">
         <head>
             <meta charset="UTF-8">
             <title>{{ oneTheory.theory_title }}</title>
+            <link rel="stylesheet" type="text/css" href="{% static "static/css/foundation.css" %}">
         </head>
     <body>
         <h4>Дата публикации: {{ oneTheory.theory_date }}</h4>
