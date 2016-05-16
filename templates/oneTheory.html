@@ -4,5 +4,5 @@
         <h4>Дата публикации: {{ oneTheory.theory_date }}</h4>
         <h2>{{ oneTheory.theory_title }}</h2>
         <hr>
-        <p>{{ oneTheory.theory_text }}</p>
+        <p>{% autoescape off %}{{ oneTheory.theory_text }}{% endautoescape %}</p>
 {% endblock %}

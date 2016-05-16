@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^theory/all/$', 'vkr.views.index'),
     url(r'^theory/all/lesson/(?P<theory_id>\d+)/$', 'vkr.views.oneTheory'),
     url(r'auth/', include('loginsys.urls')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # TODO попробовать сделать переход по слагу, а не id
     # TODO сделать домашнюю страницу, навести порядок в urls и views
     # url(r'^', 'vkr.urls'),
