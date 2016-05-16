@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^theory/all/$', 'vkr.views.index'),
     url(r'^theory/all/lesson/(?P<theory_id>\d+)/$', 'vkr.views.oneTheory'),
+    url(r'auth/', include('loginsys.urls')),
     # TODO попробовать сделать переход по слагу, а не id
     # TODO сделать домашнюю страницу, навести порядок в urls и views
     # url(r'^', 'vkr.urls'),
