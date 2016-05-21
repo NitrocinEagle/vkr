@@ -3,22 +3,22 @@ from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-
 from .models import MyUser
 
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
+    username = forms.CharField(label='Логин', widget=forms.TextInput)
+    last_name = forms.CharField(label='Фамилия', widget=forms.TextInput)
+    first_name = forms.CharField(label='Имя', widget=forms.TextInput)
+    study_group = forms.CharField(label='Группа', widget=forms.TextInput)
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Подтверждение пароля', widget=forms.PasswordInput)
-    #first_name = forms.CharField(label='Имя')
-    #last_name = forms.CharField(label='Фамилия')
-    #study_group = forms.CharField(label='Группа')
 
     class Meta:
         model = MyUser
-        fields = ("username", 'first_name', 'last_name', 'study_group')
+        fields = ("username", "last_name", "first_name", "study_group")
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -46,7 +46,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = MyUser
-        fields = ("username", 'password', 'is_active', 'is_admin', 'first_name', 'last_name', 'study_group',)
+        fields = ("username", )
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
