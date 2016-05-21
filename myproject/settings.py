@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'vkr',
     'loginsys',
     'ckeditor',
+    'extuser',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -133,3 +134,5 @@ CKEDITOR_CONFIGS = {
 }
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 CKEDITOR_IMAGE_BACKEND = "pillow"
+
+AUTH_USER_MODEL = 'extuser.MyUser'
