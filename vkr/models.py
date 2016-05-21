@@ -4,7 +4,7 @@ from ckeditor.fields import RichTextField
 
 class theory(models.Model):
     class Meta():
-        db_table = "theory"
+        db_table = "Теория"
     theory_title = models.CharField(max_length = 200)
     theory_text = RichTextField()
     theory_date = models.DateField()
