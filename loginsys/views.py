@@ -1,12 +1,11 @@
-from django.shortcuts import render
-from extuser import admin
 # Create your views here.
 
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response, redirect, render
 from django.contrib import auth
 from django.core.context_processors import csrf
+from django.template import RequestContext
 
-from extuser.admin import UserCreationForm
+from .forms import UserForm, UserProfileForm
 
 
 def login(request):
@@ -30,17 +29,25 @@ def logout(request):
     auth.logout(request)
     return redirect('/theory/all')
 
+
 def register(request):
-    args = {}
-    args.update(csrf(request))
-    args['form'] = UserCreationForm()
-    if request.POST:
-        newuser_form = UserCreationForm(request.POST)
-        if newuser_form.is_valid():
-            newuser_form.save()
-            newuser = auth.authenticate(username=newuser_form.cleaned_data['username'], password=newuser_form.cleaned_data['password2'])
-            auth.login(request, newuser)
-            return redirect('/theory/all')
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
+            registered = True
         else:
-            args['form'] = newuser_form
-    return render_to_response('register.html', args)
+            print(user_form.errors, profile_form.errors)
+    else:
+        user_form = UserForm()
+        profile_form = UserProfileForm()
+    return render(request,
+                  'register.html',
+                  {'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
