@@ -119,7 +119,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_PATH = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = (
+    ("static", "/home/macheta/PycharmProjects/myproject/myproject/static"),
+)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
