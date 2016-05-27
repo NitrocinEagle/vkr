@@ -5,4 +5,6 @@
         <h2>{{ oneTheory.theory_title }}</h2>
         <hr>
         <p>{% autoescape off %}{{ oneTheory.theory_text }}{% endautoescape %}</p>
+        <hr>
+        <a href="/upload/"><input type="button" class ="btn btn-primary" value="Перейти к выполнению задания"></a>
 {% endblock %}
