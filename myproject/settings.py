@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'loginsys',
     'ckeditor',
     #'extuser',
+    'uploadfiles',
 ]
 
 MIDDLEWARE_CLASSES = [

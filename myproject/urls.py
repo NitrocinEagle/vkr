@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^theory/all/lesson/(?P<theory_id>\d+)/$', 'vkr.views.oneTheory'),
     url(r'auth/', include('loginsys.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^upload/', 'uploadfiles.views.Upload_file'),
 ]
