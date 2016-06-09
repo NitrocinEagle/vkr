@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block register %}
+    <body>
+    <div class="container">
+        <h3 class="form-signup-heading">Регистрация</h3>
+    <hr>
+        {% if registered %}
+        <strong>Регистрация успешно завершена</strong>
+        {% else %}
+            <form role="form" method="post" action="/auth/register/"
+                class="form-signup">
+
+            {% csrf_token %}
+
+            {{ user_form.as_div }}
+            {{ profile_form.as_div }}
+                <hr>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
+        </form>
+        {% endif %}
+    </div>
+    </body>
+{% endblock %}

@@ -17,12 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    #url(r'^', 'vkr.views.index'),
     url(r'^admin/', admin.site.urls),
     url(r'^theory/all/$', 'vkr.views.index'),
     url(r'^theory/all/lesson/(?P<theory_id>\d+)/$', 'vkr.views.oneTheory'),
     url(r'auth/', include('loginsys.urls')),
-    # TODO попробовать сделать переход по слагу, а не id
-    # TODO сделать домашнюю страницу, навести порядок в urls и views
-    # url(r'^', 'vkr.urls'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^upload/', 'uploadfiles.views.Upload_file'),
 ]

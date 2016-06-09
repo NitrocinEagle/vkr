@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'vkr',
     'loginsys',
+    'ckeditor',
+    #'extuser',
+    'uploadfiles',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -120,3 +123,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     ("static", "/home/macheta/PycharmProjects/myproject/myproject/static"),
 )
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default':{
+        'toolbar': 'None',
+    },
+}
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+

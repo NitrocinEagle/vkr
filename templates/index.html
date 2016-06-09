@@ -23,8 +23,10 @@
               {% if username %}
                 <li><a href="/auth/logout/">Выйти ({{ username }}) </a> </li>
               {% else %}
-                <li><a href="/auth/login/">Войти</a> </li>
+                  <li><a href="/auth/register/">Регистрация</a></li>
+                <li><a href="/auth/login/">Вход для студента</a> </li>
               {% endif %}
+                <li><a href="/admin/">Вход для учителя</a> </li>
           </ul>
         </div>
       </div>
@@ -36,6 +38,8 @@
     {% block allcontent %}{% endblock %}
     {% block onecontent %}{% endblock %}
     {% block login %}{% endblock %}
+    {% block register %}{% endblock %}
+    {% block uploadfile %}{% endblock %}
 </div>
 </div>
 </body>
