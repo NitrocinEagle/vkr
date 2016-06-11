@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block uploadfile %}
+    <h2>{{ test.lesson.title }}</h2>
+    <hr>
+    <h3>Пример входного файла</h3>
+    <div class="well">
+        {% autoescape off %}{{ test.input }}{% endautoescape %}
+    </div>
+    <h3>Пример выходного файла</h3>
+    <div class="well">
+        {% autoescape off %}{{ test.ouput }}{% endautoescape %}
+    </div>
+    <h3>Отправка файла</h3>
+    <hr>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <hr>
+        <input type="submit" class="btn btn-primary" value="Отправить"/>
+    </form>
+    <br><br><br>
+{% endblock uploadfile %}

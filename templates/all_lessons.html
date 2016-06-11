@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block allcontent %}
+    <div class="large-8">
+        {% for lesson in lessons %}
+            <h6>Дата публикации: {{ lesson.date_published }}</h6>
+            <h4>
+                <a href="{% url 'theory:lesson' lesson_id=lesson.id %}"> {{ lesson.title }}</a>
+                {% for ans in answers %}
+                    {% if ans.lesson.id == lesson.id and ans.test_pass %}[Выполнено]{% endif %}
+                {% endfor %}
+            </h4>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

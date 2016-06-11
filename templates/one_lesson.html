@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block onecontent %}
+    <h4>Дата публикации: {{ lesson.date_published }}</h4>
+    <h2>{{ lesson.title }}</h2>
+    <hr>
+    <p>{% autoescape off %}{{ lesson.text }}{% endautoescape %}</p>
+    <hr>
+    <h2>Задание</h2>
+    <hr>
+    <p>{% autoescape off %}{{ lesson.task_text }}{% endautoescape %}</p>
+    <hr>
+    {% if answer %}
+        {% if answer.test_pass %}
+            Тест пройден.<br><br>
+            <a href="{% url 'results:test_result' lesson_id=lesson_id %}"><input type="button" class="btn btn-primary" value="Результаты"></a><br>
+        {% else %}
+            Тест не пройден. <br><br>
+            <a href="{% url 'results:test_result' lesson_id=lesson_id %}"><input type="button" class="btn btn-primary" value="Результаты"></a><br>
+            <a href="{% url 'upload_files:index' lesson_id=lesson_id %}"><input type="button" class="btn btn-primary" value="Перейти к выполнению задания"></a>
+        {% endif %}
+    {% else %}
+        <a href="{% url 'upload_files:index' lesson_id=lesson_id %}"><input type="button" class="btn btn-primary" value="Перейти к выполнению задания"></a>
+    {% endif %}
+    <br><br><br>
+
+{% endblock %}
