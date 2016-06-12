@@ -33,6 +33,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'app.contrib.middlewares.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -107,3 +108,6 @@ CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.j
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
 MAKE_TEST_SCRIPT_FILE = os.path.join(BASE_DIR, 'app/make_test.sh')
+
+LOGIN_EXEMPT_URLS = ['user/register/',]
+LOGIN_URL = '/user/login/'
