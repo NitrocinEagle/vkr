@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 from django.shortcuts import render_to_response, redirect, render
 from django.contrib import auth
 from django.core.context_processors import csrf
@@ -15,7 +16,7 @@ def login(request):
             auth.login(request, user)
             return redirect('/theory/')
         else:
-            args['login_error'] = "Пользователь не найден"
+            args['login_error'] = u"Пользователь не найден"
             return render_to_response('login.html', args)
     else:
         return render_to_response('login.html', args)
@@ -39,8 +40,10 @@ def register(request):
             profile.user = user
             profile.save()
             registered = True
+            return redirect('/user/login/')
         else:
             print(user_form.errors, profile_form.errors)
+            return redirect('/user/register/')
     else:
         user_form = UserForm()
         profile_form = UserProfileForm()

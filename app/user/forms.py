@@ -32,7 +32,7 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('user', 'last_name', 'first_name', 'study_group',)
+        fields = ('last_name', 'first_name', 'study_group',)
 
     error_css_class = 'class-error'
     required_css_class = 'class-required'
