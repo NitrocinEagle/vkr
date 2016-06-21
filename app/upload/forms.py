@@ -1,5 +1,5 @@
 # -*- coding: utf8 -*-
-import subprocess
+from subprocess import check_output
 from django import forms
 
 
@@ -14,7 +14,6 @@ class UploadAnswerForm(forms.Form):
         return file_path
 
     def make_test(self, script, cpp, input, etalon, base_dir):
-        result = subprocess.call(
-            "cd / && ./%s %s %s %s %s" % (script, cpp, input, etalon, base_dir),
-            shell=True)
-        return result
+        out = check_output(["cd / && ./%s %s %s %s %s" % (
+            script, cpp, input, etalon, base_dir)], shell=True)
+        return str(out, 'utf-8')

@@ -34,7 +34,7 @@ class UploadAnswerFormView(UsernameMixin, FormView):
                 'base_dir': settings.BASE_DIR,
             }
             result = str(tester.make_test(**make_test_data))
-            matched = True if result == '0' else False
+            matched = True if len(result) == 0 else False
             test_passed *= matched
             test_case = TestCasePass.objects.filter(lesson=lesson,
                                                     user=self.request.user,
